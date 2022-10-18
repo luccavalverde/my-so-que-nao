@@ -12,6 +12,10 @@ const config = {
 //cria a conexao
 const conexao = new sequelize(config);
 //realizar consultas(assincronas)
-let resultado = conexao.query("SELECT * FROM funcionarios");
+let promise = conexao.query("SELECT * FROM funcionarios");
 
-console.log(resultado);
+//forma 1 de lidar com promeses: callbacks
+promise.then(
+    data => {console.log(data)}
+)
+console.log(promise);
